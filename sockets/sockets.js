@@ -1,4 +1,4 @@
-const data=[/*{room:jnsnnanbb,players:[{name:akshay,score:0,id:nj,type:host},{}],timer:15,answers:0,index:0,clock:'a'}*/];
+const data=[];
 let activePlayers=[];
 let hosts={activeRooms:0,host:[]};
 const root = (io) => {
@@ -137,8 +137,6 @@ const root = (io) => {
                 index=hosts.host.indexOf(record);
                 hosts.host.splice(index,1);
             }
-            console.log(data);
-            console.log(hosts.host);
             io.to(record.room).emit('show_players');
         })
     })

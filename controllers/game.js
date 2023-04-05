@@ -9,7 +9,6 @@ const showAllPlayers = (req, res) => {
 }
 const showQusestion = (req, res) => {
     const record = findData(req.body);
-    //console.log(questions);
     res.status(200).json({ data: record.questions[record.index[0]][record.index[1]] });
 }
 const checkAnswer = (req, res) => {
@@ -33,12 +32,10 @@ const getQuestion = async (req, res) => {
     }
     try {
         for (var i = 0; i < input.length; i++) {
-            //console.log(input[i]);
             const collection = mongoose.connection.db.collection(`${input[i]}`);
             const docs = await collection.find({}).toArray();
             record.questions[i] = docs;
         }
-        //console.log(questions)
         res.status(200).json({ result: 'success' });
     } catch (error) {
         console.log(error)

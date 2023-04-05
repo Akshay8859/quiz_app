@@ -180,11 +180,9 @@ form.addEventListener('submit', async (e) => {
     const ans = answer.value;
     try {
         await axios.post('/game/checkAnswer', { ans: ans, room: user.room });
-        console.log("correct");
         socket.emit('update_result', { room: user.room });
         form.style.visibility = 'hidden';
     } catch (error) {
-        console.log("wrong answer");
     }
     answer.value = '';
 })
