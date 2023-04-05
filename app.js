@@ -13,7 +13,7 @@ var io=require('socket.io')(http);
 const {root}=require('./sockets/sockets');
 root(io);
 app.use(express.json());
-const port=1200;
+const port=process.env.PORT || 1200;
 app.use('/game',gameRouter);
 app.use('/auth',authRouter);
 app.use(express.static('./public'));
