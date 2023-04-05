@@ -21,7 +21,7 @@ app.use(notFound);
 const start=async ()=>{
     try {
         await connectDB(process.env.CONNECTION);
-        http.listen(port,console.log(`server listening at http://localhost:${port}`));
+        app.listen(port,console.log(`server listening at http://localhost:${port}`));
     } catch (error) {
         console.log(error);
     }
