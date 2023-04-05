@@ -57,7 +57,6 @@ const checkToken = async () => {
         user.name = data.name;
         user.type = data.type;
         user.room = data.room;
-        console.log(data);
         if (user.type === 'host') {
             document.getElementById('code').append(user.room);
         }
@@ -89,13 +88,11 @@ const collections=async()=>{
         result.innerText = 'NO QUESTIONS ARE PRESENT AT THIS MOMENT';
     }
 }
-const showStart = async () => {
+const showStart = () => {
     if (user.type === 'host') {
         time.style.visibility = 'visible';
         setting.style.display = 'flex';
-        code.style.display = 'none';
-
-        
+        code.style.display = 'none'; 
     }
 }
 let players = document.querySelector('.players');
@@ -212,4 +209,8 @@ socket.on('show_start', () => showStart());
 socket.on('show_setting', (d) => {
     document.querySelector('.total').innerText = `Score(${d.score})`;
     time.innerText = `${d.timer}s`;
+})
+socket.on('play_audio',()=>{
+    const audio=new Audio('audio.mp3');
+    audio.play();
 })

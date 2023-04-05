@@ -38,7 +38,7 @@ const getQuestion = async (req, res) => {
         }
         res.status(200).json({ result: 'success' });
     } catch (error) {
-        console.log(error)
+        return res.status(400).json({ result: 'unsuccess' });
     }
 }
 const getCollections = async (req, res) => {

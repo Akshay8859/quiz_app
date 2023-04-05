@@ -17,6 +17,7 @@ const root = (io) => {
                 record.index[0]=Math.floor(Math.random()*record.questions.length);
             }
             record.index[1]=Math.floor(Math.random()*record.questions[record.index[0]].length);
+            io.to(d.room).emit('play_audio');
             io.to(d.room).emit('show_question');
         }
         const interval=(d)=>{
@@ -47,6 +48,7 @@ const root = (io) => {
             io.to(d.room).emit('show_setting',{timer:record.totalTime,score:record.totalScore});
         })
         socket.on("new_user_joined", (d) => {
+            socket.to(d.room).emit('play_audio');
             const user = {};
             user.name = d.name;
             user.score = 0;
@@ -81,6 +83,7 @@ const root = (io) => {
         socket.on('update_result',(d)=>{
             const record=findData(d);
             const a=record.players.find((player)=>socket.id===player.id);
+            socket.to(d.room).emit('play_audio');
             if(record.timer>=10){
                 a.score+=10;
             }
@@ -116,6 +119,7 @@ const root = (io) => {
             if(!roommate){
                 return;
             }
+            socket.to(record.room).emit('play_audio');
             const size=roommate.players.length;
             for(let i=0;i<size;i++){
                 if(socket.id===roommate.players[i].id){
