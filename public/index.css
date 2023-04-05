@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    overflow: hidden;
+}
+
+h1 {
+    display: inline;
+}
+
+button {
+    cursor: pointer;
+}
+
+.back {
+    position: fixed;
+    top: 20vh;
+    left: 45vw;
+    font-size: large;
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: 1px solid black;
+    border-bottom: 5px solid black;
+    display: none;
+    z-index: 1;
+}
+
+.entry {
+    position: relative;
+    background-color: white;
+    width: fit-content;
+    margin: 40vh auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 20px 5px white;
+    z-index: 1;
+}
+.main:hover{
+    opacity: 1;
+}
+
+.name {
+    font-size: large;
+}
+
+.main {
+    opacity: 0.5;
+    display: none;
+}
+
+.btn1 {
+    font-size: large;
+    height: 64.89px;
+    width: 256.117px;
+    margin: 5px;
+    border-radius: 23px;
+    font-style: italic;
+    font-weight: 800;
+    border: 2px solid black;
+    border-bottom: 8px solid black;
+}
+
+button:hover {
+    border: 0;
+}
+
+.codebox {
+    display: none;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code {
+    font-size: large;
+    text-transform: uppercase;
+    border: 1px solid black;
+}
+
+::placeholder {
+    text-transform: capitalize;
+}
+.circle{
+    background-color: white;
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    margin: 2px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+
+}
+@media screen and (max-width:450px) {
+    .entry{
+        font-size: xx-small;
+        width: 80vw;
+    }
+    .name{
+        font-size: inherit;
+    }
+}
